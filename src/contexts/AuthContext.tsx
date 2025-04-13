@@ -45,6 +45,28 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setLoading(false);
         return;
       }
+      
+      // Handle hardcoded student token
+      if (token === 'student-mock-token') {
+        setUser({
+          id: 'student-1',
+          username: 'student',
+          role: 'student'
+        });
+        setLoading(false);
+        return;
+      }
+      
+      // Handle hardcoded professor token
+      if (token === 'faculty-mock-token') {
+        setUser({
+          id: 'faculty-1',
+          username: 'faculty',
+          role: 'professor'
+        });
+        setLoading(false);
+        return;
+      }
 
       const decodedToken = decodeToken(token);
       if (decodedToken && decodedToken.exp * 1000 > Date.now()) {
@@ -65,6 +87,44 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (username: string, password: string) => {
     try {
       setLoading(true);
+      
+      // Mock login for demo users
+      if (username === 'admin' && password === 'admin123') {
+        localStorage.setItem('token', 'admin-mock-token');
+        setUser({
+          id: 'admin-1',
+          username: 'admin',
+          role: 'admin'
+        });
+        toast.success('Login successful!');
+        navigate('/');
+        return;
+      }
+      
+      if (username === 'student' && password === 'student123') {
+        localStorage.setItem('token', 'student-mock-token');
+        setUser({
+          id: 'student-1',
+          username: 'student',
+          role: 'student'
+        });
+        toast.success('Login successful!');
+        navigate('/');
+        return;
+      }
+      
+      if (username === 'faculty' && password === 'faculty123') {
+        localStorage.setItem('token', 'faculty-mock-token');
+        setUser({
+          id: 'faculty-1',
+          username: 'faculty',
+          role: 'professor'
+        });
+        toast.success('Login successful!');
+        navigate('/');
+        return;
+      }
+      
       const response = await authAPI.login(username, password);
       const { token } = response.data;
       

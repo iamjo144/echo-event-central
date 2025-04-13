@@ -55,13 +55,22 @@ const Index = () => {
               Plan and manage campus events with ease. Discover upcoming events and stay organized.
             </p>
             
-            <Button 
-              size="lg" 
-              className="bg-[#3366cc] hover:bg-[#254e9c]"
-              onClick={() => navigate('/login')}
-            >
-              Browse Events
-            </Button>
+            <div className="flex space-x-4">
+              <Button 
+                size="lg" 
+                className="bg-[#3366cc] hover:bg-[#254e9c]"
+                onClick={() => navigate('/login')}
+              >
+                Sign In
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                onClick={() => navigate('/register')}
+              >
+                Register
+              </Button>
+            </div>
           </div>
         )}
       </main>

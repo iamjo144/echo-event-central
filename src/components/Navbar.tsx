@@ -49,15 +49,26 @@ const Navbar = () => {
                 </Button>
               </div>
             ) : (
-              <Link to="/login">
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  className="text-[#0e3256]"
-                >
-                  Log in
-                </Button>
-              </Link>
+              <div className="flex items-center space-x-2">
+                <Link to="/login">
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    className="text-[#0e3256]"
+                  >
+                    Log in
+                  </Button>
+                </Link>
+                <Link to="/register">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="text-[#0e3256]"
+                  >
+                    Sign up
+                  </Button>
+                </Link>
+              </div>
             )}
           </div>
         </div>
