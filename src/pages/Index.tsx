@@ -36,7 +36,7 @@ const Index = () => {
               <div>
                 <h1 className="text-3xl font-bold">CEMS Events</h1>
                 <p className="text-muted-foreground">
-                  Browse and manage college events
+                  Browse and manage campus events
                 </p>
               </div>
             </div>
@@ -45,24 +45,23 @@ const Index = () => {
             <EventList searchParams={searchParams} />
           </>
         ) : (
-          <div className="flex flex-col items-center justify-center py-20 text-center">
+          <div className="flex flex-col items-center justify-center py-20 text-center bg-white rounded-lg shadow-sm p-8 max-w-4xl mx-auto mt-8">
             <div className="h-20 w-20 bg-primary rounded-full flex items-center justify-center mb-6">
               <Calendar className="h-10 w-10 text-primary-foreground" />
             </div>
             
-            <h1 className="text-4xl font-bold mb-4">Welcome to CEMS</h1>
+            <h1 className="text-4xl font-bold mb-4 text-[#0e3256]">Welcome to the Campus Event Management System</h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
-              College Event Management System: Discover, Create, and Manage Events Seamlessly
+              Plan and manage campus events with ease. Discover upcoming events and stay organized.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" onClick={() => navigate('/login')}>
-                Login
-              </Button>
-              <Button size="lg" variant="outline" onClick={() => navigate('/register')}>
-                Register
-              </Button>
-            </div>
+            <Button 
+              size="lg" 
+              className="bg-[#3366cc] hover:bg-[#254e9c]"
+              onClick={() => navigate('/login')}
+            >
+              Browse Events
+            </Button>
           </div>
         )}
       </main>

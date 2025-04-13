@@ -9,53 +9,38 @@ const Navbar = () => {
   const { user, logout, isAdmin, isProfessor } = useAuth();
 
   return (
-    <nav className="bg-primary text-primary-foreground shadow-md">
+    <nav className="bg-white border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <Calendar className="h-6 w-6" />
-            <span className="text-xl font-bold">CEMS</span>
+            <Calendar className="h-6 w-6 text-[#0e3256]" />
+            <span className="text-xl font-bold text-[#0e3256]">Campus Event Management System</span>
           </Link>
           
           <div className="flex items-center space-x-4">
+            <Link to="/" className="font-medium text-[#0e3256]">
+              Events
+            </Link>
+            
             {user ? (
-              <>
-                <span className="hidden md:inline-block">
-                  Welcome, {user.username}
-                </span>
-                
-                {(isAdmin() || isProfessor()) && (
-                  <Link to="/create-event">
-                    <Button variant="ghost" size="sm">
-                      <PlusCircle className="mr-2 h-4 w-4" />
-                      Create Event
-                    </Button>
-                  </Link>
-                )}
-                
-                {isAdmin() && (
-                  <Link to="/admin">
-                    <Button variant="ghost" size="sm">
-                      <UserCog className="mr-2 h-4 w-4" />
-                      Admin Panel
-                    </Button>
-                  </Link>
-                )}
-                
-                <Button variant="ghost" size="sm" onClick={logout}>
-                  <LogOut className="mr-2 h-4 w-4" />
-                  Logout
-                </Button>
-              </>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={logout}
+                className="text-[#0e3256]"
+              >
+                Log out
+              </Button>
             ) : (
-              <>
-                <Link to="/login">
-                  <Button variant="ghost" size="sm">Login</Button>
-                </Link>
-                <Link to="/register">
-                  <Button variant="ghost" size="sm">Register</Button>
-                </Link>
-              </>
+              <Link to="/login">
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  className="text-[#0e3256]"
+                >
+                  Log in
+                </Button>
+              </Link>
             )}
           </div>
         </div>

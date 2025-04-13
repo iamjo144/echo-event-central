@@ -29,6 +29,9 @@ const App = () => (
             <Route path="/register" element={<Register />} />
             <Route path="/create-event" element={<CreateEvent />} />
             <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/admin/events" element={<AdminPanel />} />
+            <Route path="/admin/users" element={<AdminPanel />} />
+            <Route path="/admin/settings" element={<AdminPanel />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
