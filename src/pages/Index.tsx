@@ -34,9 +34,9 @@ const Index = () => {
           <>
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
               <div>
-                <h1 className="text-3xl font-bold">Events</h1>
+                <h1 className="text-3xl font-bold">CEMS Events</h1>
                 <p className="text-muted-foreground">
-                  Browse and search for upcoming events
+                  Browse and manage college events
                 </p>
               </div>
             </div>
@@ -50,9 +50,9 @@ const Index = () => {
               <Calendar className="h-10 w-10 text-primary-foreground" />
             </div>
             
-            <h1 className="text-4xl font-bold mb-4">Welcome to Echo Event Central</h1>
+            <h1 className="text-4xl font-bold mb-4">Welcome to CEMS</h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl">
-              The ultimate platform for university events. Discover, create, and manage events all in one place.
+              College Event Management System: Discover, Create, and Manage Events Seamlessly
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -69,7 +69,7 @@ const Index = () => {
       
       <footer className="bg-muted py-6">
         <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>© {new Date().getFullYear()} Echo Event Central. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CEMS - College Event Management System. All rights reserved.</p>
         </div>
       </footer>
     </div>
