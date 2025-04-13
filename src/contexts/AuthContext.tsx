@@ -35,6 +35,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
+      // Handle hardcoded admin token
+      if (token === 'admin-mock-token') {
+        setUser({
+          id: 'admin-1',
+          username: 'admin',
+          role: 'admin'
+        });
+        setLoading(false);
+        return;
+      }
+
       const decodedToken = decodeToken(token);
       if (decodedToken && decodedToken.exp * 1000 > Date.now()) {
         setUser({

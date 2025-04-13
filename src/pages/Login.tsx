@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Calendar } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 const Login = () => {
   const [username, setUsername] = React.useState('');
@@ -28,9 +29,18 @@ const Login = () => {
     setIsSubmitting(true);
     
     try {
+      // Handle admin login with hardcoded credentials
+      if (username === 'admin' && password === 'admin123') {
+        // Mock admin login
+        localStorage.setItem('token', 'admin-mock-token');
+        window.location.href = '/admin'; // Force reload to update auth context
+        return;
+      }
+      
       await login(username, password);
     } catch (error) {
       console.error('Login submission error:', error);
+      toast.error('Invalid username or password');
     } finally {
       setIsSubmitting(false);
     }

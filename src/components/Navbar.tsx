@@ -22,15 +22,32 @@ const Navbar = () => {
               Events
             </Link>
             
+            {(isProfessor() || isAdmin()) && (
+              <Link to="/create-event" className="font-medium text-[#0e3256]">
+                Create Event
+              </Link>
+            )}
+            
+            {isAdmin() && (
+              <Link to="/admin" className="font-medium text-[#0e3256]">
+                Admin Panel
+              </Link>
+            )}
+            
             {user ? (
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                onClick={logout}
-                className="text-[#0e3256]"
-              >
-                Log out
-              </Button>
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-[#0e3256]">
+                  {user.username} ({user.role})
+                </span>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={logout}
+                  className="text-[#0e3256]"
+                >
+                  Log out
+                </Button>
+              </div>
             ) : (
               <Link to="/login">
                 <Button 

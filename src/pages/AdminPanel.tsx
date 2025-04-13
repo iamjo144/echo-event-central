@@ -11,7 +11,7 @@ const AdminPanel = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   
-  // Mock data for dashboard
+  // Mock data for dashboard based on the uploaded pictures
   const stats = {
     totalEvents: 135,
     upcomingEvents: 12,
@@ -21,42 +21,58 @@ const AdminPanel = () => {
   const events = [
     {
       id: '1',
-      title: 'Science Fair',
+      title: 'Science Fair 2024',
       date: 'May 5, 2024',
-      location: 'Building A',
+      location: 'Building A, Room 102',
       attendees: 150,
       status: 'Published'
     },
     {
       id: '2',
-      title: 'Music Festival',
+      title: 'Annual Music Festival',
       date: 'April 20, 2024',
-      location: 'Outdoor Stage',
+      location: 'Campus Center Outdoor Stage',
       attendees: 500,
       status: 'Published'
     },
     {
       id: '3',
-      title: 'Tech Conference',
+      title: 'Tech Innovation Conference',
       date: 'April 15, 2024',
-      location: 'Convention Center',
-      attendees: 300,
+      location: 'Engineering Building Convention Center',
+      attendees: 325,
       status: 'Published'
     },
     {
       id: '4',
-      title: 'Art Exhibition',
+      title: 'Student Art Exhibition',
       date: 'March 30, 2024',
-      location: 'Art Gallery',
-      attendees: 200,
+      location: 'Fine Arts Gallery',
+      attendees: 210,
       status: 'Canceled'
     },
     {
       id: '5',
-      title: 'Career Fair',
+      title: 'Spring Career Fair',
       date: 'March 10, 2024',
-      location: 'Student Union',
-      attendees: 180,
+      location: 'Student Union Grand Hall',
+      attendees: 185,
+      status: 'Published'
+    },
+    {
+      id: '6',
+      title: 'International Food Festival',
+      date: 'May 12, 2024',
+      location: 'Student Union Plaza',
+      attendees: 400,
+      status: 'Published'
+    },
+    {
+      id: '7',
+      title: 'Research Symposium',
+      date: 'April 28, 2024',
+      location: 'Science Center Auditorium',
+      attendees: 120,
       status: 'Published'
     }
   ];

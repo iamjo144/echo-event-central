@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface DashboardStatsProps {
   totalEvents: number;
@@ -25,6 +26,12 @@ interface AdminDashboardProps {
 }
 
 const AdminDashboard: React.FC<AdminDashboardProps> = ({ stats, events }) => {
+  // Prepare data for the bar chart
+  const chartData = events.map(event => ({
+    name: event.title.length > 15 ? event.title.substring(0, 15) + '...' : event.title,
+    attendees: event.attendees
+  }));
+
   return (
     <div className="p-6 space-y-6">
       <h1 className="text-2xl font-bold mb-6">Admin Dashboard</h1>
@@ -48,6 +55,26 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ stats, events }) => {
           <CardContent className="p-6">
             <div className="text-sm uppercase font-semibold mb-2">Registered Users</div>
             <div className="text-4xl font-bold">{stats.registeredUsers}</div>
+          </CardContent>
+        </Card>
+      </div>
+      
+      {/* Event Attendance Chart (from mockup) */}
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold mb-4">Event Attendance</h2>
+        <Card>
+          <CardContent className="p-4">
+            <div className="h-[300px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={chartData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="attendees" fill="#5b9bd5" />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           </CardContent>
         </Card>
       </div>
